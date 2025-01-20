@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamera testi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    video {
+      border: 5px solid #3498db;
+      border-radius: 10px;
+      background-color: #000;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      video {
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Kamera ochish testi</h1>
+  <video autoplay></video>
+
+  <script>
+    // Kamerani ishga tushirish
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => {
+        const video = document.querySelector('video');
+        if (video) {
+          video.srcObject = stream;
+        }
+      })
+      .catch((error) => {
+        console.error("Kamerani ochishda xatolik:", error);
+        alert("Kameraga ruxsat berilmagan yoki qurilmada kamera yo'q.");
+      });
+  </script>
+</body>
+</html>

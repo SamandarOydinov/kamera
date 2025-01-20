@@ -1,0 +1,15 @@
+{
+  "name": "accessforcamera",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
