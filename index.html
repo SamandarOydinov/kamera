@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamera testi</title>
+</head>
+<body>
+  <h1>Kamera ochish testi</h1>
+  <video autoplay style="border:5px solid blue ; background-color: black; width: 100%; max-width: 500px;"></video>
+
+  <script>
+    // Kamerani ishga tushirish
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => {
+        const video = document.querySelector('video');
+        if (video) {
+          video.srcObject = stream;
+        }
+      })
+      .catch((error) => {
+        console.error("Kamerani ochishda xatolik:", error);
+        alert("Kameraga ruxsat berilmagan yoki qurilmada kamera yo'q.");
+      });
+  </script>
+</body>
+</html>
